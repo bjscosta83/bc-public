@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Card</title>
+    <meta name="description" content="Globo Padel - Your ultimate padel tournament companion. Track matches, view stats, and follow your favorite players.">
+    <title>Globo Padel Scores - Track Padel Tournaments</title>
     <style>
         * {
             margin: 0;
@@ -13,172 +14,335 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #66ea68 0%, #67a24b 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #6b8522 0%, #a7db14 100%);
         }
 
-        .card {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 0px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 100%;
+            border-radius: 30px;
+            padding: 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
 
-        .card-header {
-            background: linear-gradient(135deg, #66ea68 0%, #67a24b 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: white;
-        }
-
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
+        .logo img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 20px;
-            background: #f0f0f0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .role {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .contact-section {
+        .tagline {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.4rem;
+            font-weight: 300;
             margin-bottom: 30px;
         }
 
-        .contact-item {
+        .download-buttons {
             display: flex;
+            gap: 20px;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
-            color: #333;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
             text-decoration: none;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-item:hover {
-            transform: translateX(5px);
+        .store-button:hover {
+            background: rgba(0, 0, 0, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .contact-icon {
+        .store-button svg {
             width: 24px;
             height: 24px;
-            margin-right: 12px;
-            fill: #77ce35;
         }
 
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #77ce35;
-        }
-
-        .apps-section {
-            margin-top: 20px;
-        }
-
-        .app-item {
+        .store-button .button-text {
             display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: all 0.3s;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .app-item:hover {
-            background: #e9ecef;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .store-button .button-text small {
+            font-size: 0.7rem;
+            opacity: 0.8;
         }
 
-        .app-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            margin-right: 15px;
-            background: #ddd;
-            object-fit: cover;
-        }
-
-        .app-name {
-            font-size: 16px;
+        .store-button .button-text span {
+            font-size: 1.1rem;
             font-weight: 600;
+        }
+
+        .features {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #6b8522;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: #333;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .screenshots {
+            margin-top: 60px;
+        }
+
+        .screenshots h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #6b8522;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .screenshot {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-caption {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        footer a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .store-button {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .features {
+                padding: 40px 20px;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="card-header">
-            <!-- Replace with your profile image -->
-            <img src="assets/profile.jpg" alt="Profile" class="profile-image">
-            <div class="name">Bruno Costa</div>
-            <div class="role">Mobile Developer</div>
-        </div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="assets/icon_bg.png" alt="Globo Padel Logo">
+            </div>
+            <h1>Globo Padel</h1>
+            <p class="tagline">Your Ultimate Padel Tournament Companion</p>
 
-        <div class="card-body">
-            <div class="contact-section">
-                <div class="section-title">Contact</div>
-                
-                <!-- Email -->
-                <a href="mailto:your.email@example.com" class="contact-item">
-                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            <!-- <div class="download-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.globopadel.app" class="store-button" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                     </svg>
-                    bjscosta@gmail.com
+                    <div class="button-text">
+                        <small>GET IT ON</small>
+                        <span>Google Play</span>
+                    </div>
                 </a>
 
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/bruno-costa-40432575/" target="_blank" class="contact-item">
-                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                <a href="https://apps.apple.com/app/globo-padel/id123456789" class="store-button" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
                     </svg>
-                    Linkedin
+                    <div class="button-text">
+                        <small>Download on the</small>
+                        <span>App Store</span>
+                    </div>
                 </a>
+            </div> -->
+        </header>
+
+        <div class="features">
+            <h2>Everything You Need to Follow Padel</h2>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>🎾 Live Matches</h3>
+                    <p>Follow live matches in real-time with up-to-date scores and match statistics. Never miss a moment of the action.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>📊 Detailed Statistics</h3>
+                    <p>Dive deep into match analytics with comprehensive stats for every set and game. Analyze player performance like never before.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>👥 Player Profiles</h3>
+                    <p>Explore detailed player profiles with rankings, career stats, and match history. Track your favorite players' journey.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>🏆 Tournament Tracking</h3>
+                    <p>Browse tournaments, view draws, and follow the competition from first round to finals. Stay updated on all the action.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>⚔️ Head-to-Head</h3>
+                    <p>Compare players and teams with detailed head-to-head records and historical matchups. See who has the edge.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>🌍 Multi-Language</h3>
+                    <p>Available in English, Spanish, Portuguese, French, and Italian. Enjoy the app in your preferred language.</p>
+                </div>
             </div>
 
-            <div class="apps-section">
-                <div class="section-title">Published Apps</div>
-                
-                <!-- App 1 - Replace with your app details -->
-                <div class="app-item">
-                    <img src="assets/icon.png" alt="App Icon" class="app-icon">
-                    <div class="app-name">Globo Padel Scores</div>
-                </div>
+            <div class="screenshots">
+                <h3>App Screenshots</h3>
+                <div class="screenshot-grid">
+                    <div class="screenshot">
+                        <img src="assets/matches-dark.png" alt="Matches Screen">
+                        <div class="screenshot-caption">Live Matches & Scores</div>
+                    </div>
 
-                <!-- Add more apps here if needed -->
-                <!-- 
-                <div class="app-item">
-                    <img src="assets/app_icon_2.png" alt="App Icon" class="app-icon">
-                    <div class="app-name">Your App Name</div>
+                    <div class="screenshot">
+                        <img src="assets/match-stats.png" alt="Match Statistics">
+                        <div class="screenshot-caption">Detailed Match Statistics</div>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="assets/player-details.png" alt="Player Details">
+                        <div class="screenshot-caption">Player Profiles & Rankings</div>
+                    </div>
                 </div>
-                -->
             </div>
         </div>
+
+        <footer>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <span style="color: rgba(255, 255, 255, 0.5); margin: 0 10px;">•</span>
+            <a href="bc.html">Developer</a>
+            <p>&copy; 2026 Globo Padel Scores. Track, Analyze, Enjoy.</p>
+        </footer>
     </div>
 </body>
 </html>
